@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import logo from "./assets/pic.jpg";
 import {
   ArrowRight,
   CheckCircle2,
@@ -10,20 +11,35 @@ import {
 } from "lucide-react";
 
 function App() {
-  const navLinks = ["About", "Features", "Why"];
+
+  const navLinks = [
+    { name: "About", id: "about" },
+    { name: "Features", id: "features" },
+    { name: "Why", id: "why" },
+  ];
 
   return (
-    <div className="font-sans text-slate-800">
+    <div className="font-sans text-slate-900">
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full bg-white shadow z-50">
-        <div className="max-w-[1200px] mx-auto px-6 h-16 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-green-600">PaisaPotli</h1>
+        <div className="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
 
+          {/* Logo */}
+          <div className="flex items-center gap-2">
+            <img src={logo} alt="logo" className="h-14 w-auto" />
+            <span className="text-xl font-bold text-green-800">PaisaPotli</span>
+          </div>
+
+          {/* Nav Links */}
           <div className="hidden md:flex gap-6">
             {navLinks.map((link) => (
-              <a key={link} href="#" className="hover:text-green-600">
-                {link}
+              <a
+                key={link.name}
+                href={`#${link.id}`}
+                className="hover:text-green-600"
+              >
+                {link.name}
               </a>
             ))}
           </div>
@@ -31,17 +47,18 @@ function App() {
           <button className="bg-green-600 text-white px-4 py-2 rounded-lg">
             Start Learning
           </button>
+
         </div>
       </nav>
 
       {/* Hero */}
       <section className="pt-28 pb-16 px-6">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 gap-10 items-center">
-          
+
           <div>
             <h1 className="text-5xl font-extrabold leading-tight mb-4">
-              Apna Paisa <br />
-              <span className="text-green-600">Samajhdari Se</span> Grow Karo
+              अपना पैसा <br />
+              <span className="text-green-600">समझदारी से</span> बढ़ाओ
             </h1>
 
             <p className="text-gray-500 mb-6">
@@ -65,13 +82,14 @@ function App() {
               className="rounded-xl shadow-lg"
             />
           </div>
+
         </div>
       </section>
 
       {/* About */}
-      <section className="text-center py-20 px-6 bg-gray-50">
+      <section id="about" className="scroll-mt-24 text-center py-20 px-6 bg-gray-50">
         <h2 className="text-3xl font-bold mb-4">
-          PaisaPotli.com  एक प्लेटफॉर्म है जहाँ आपको सरल हिंदी में वित्तीय ज्ञान मिलता है।
+          PaisaPotli.com एक प्लेटफॉर्म है जहाँ आपको सरल हिंदी में वित्तीय ज्ञान मिलता है।
         </h2>
         <p className="text-gray-500">
           Learn finance in simple Hindi and grow your money smartly.
@@ -79,9 +97,9 @@ function App() {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-6">
+      <section id="features" className="scroll-mt-24 py-20 px-6">
         <div className="max-w-[1200px] mx-auto grid md:grid-cols-3 gap-6">
-          
+
           <div className="p-6 bg-white shadow rounded-xl">
             <PiggyBank className="text-green-600 mb-4" />
             <h3 className="font-bold text-lg">Smart Savings</h3>
@@ -104,7 +122,7 @@ function App() {
       </section>
 
       {/* Why */}
-      <section className="py-20 px-6 bg-gray-50">
+      <section id="why" className="scroll-mt-24 py-20 px-6 bg-gray-50">
         <div className="max-w-[800px] mx-auto">
           <h2 className="text-3xl font-bold mb-6">Why Choose Us?</h2>
 
@@ -137,6 +155,7 @@ function App() {
       <footer className="text-center py-6 bg-gray-200">
         © 2025 PaisaPotli
       </footer>
+
     </div>
   );
 }
