@@ -1,18 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import {
   ArrowRight, CheckCircle2, TrendingUp, PiggyBank, Lightbulb,
   Play, Plus, Trash2, ChevronUp, ChevronDown, BarChart2,
-  Shield, BookOpen, Zap, Star, Menu, X, IndianRupee
+  Shield, BookOpen, Zap, Menu, X
 } from "lucide-react";
 
-// ── Fade-in-when-visible hook ──────────────────────────────────────────────
+// ── Fade-in-when-visible ───────────────────────────────────────────────────
 function FadeIn({ children, delay = 0, direction = "up", className = "" }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const variants = {
-    hidden: { opacity: 0, y: direction === "up" ? 40 : direction === "down" ? -40 : 0, x: direction === "left" ? 40 : direction === "right" ? -40 : 0 },
-    visible: { opacity: 1, y: 0, x: 0, transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] } },
+    hidden: {
+      opacity: 0,
+      y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
+      x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
+    },
+    visible: {
+      opacity: 1, y: 0, x: 0,
+      transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
+    },
   };
   return (
     <motion.div ref={ref} initial="hidden" animate={inView ? "visible" : "hidden"} variants={variants} className={className}>
@@ -22,7 +29,7 @@ function FadeIn({ children, delay = 0, direction = "up", className = "" }) {
 }
 
 // ── Animated counter ───────────────────────────────────────────────────────
-function Counter({ end, suffix = "", prefix = "" }) {
+function Counter({ end, suffix = "" }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
@@ -37,10 +44,10 @@ function Counter({ end, suffix = "", prefix = "" }) {
     }, 16);
     return () => clearInterval(timer);
   }, [inView, end]);
-  return <span ref={ref}>{prefix}{count.toLocaleString("en-IN")}{suffix}</span>;
+  return <span ref={ref}>{count.toLocaleString("en-IN")}{suffix}</span>;
 }
 
-// ── P&L Calculator Tool ────────────────────────────────────────────────────
+// ── P&L Tool ───────────────────────────────────────────────────────────────
 function PnLTool() {
   const [holdings, setHoldings] = useState([]);
   const [form, setForm] = useState({ ticker: "", exchange: "NSE", buyPrice: "", curPrice: "", qty: "", type: "Long" });
@@ -62,17 +69,17 @@ function PnLTool() {
   };
 
   const totalInvested = holdings.reduce((s, h) => s + h.invested, 0);
-  const totalVal = holdings.reduce((s, h) => s + h.currentVal, 0);
-  const netPnl = holdings.reduce((s, h) => s + h.pnl, 0);
+  const totalVal      = holdings.reduce((s, h) => s + h.currentVal, 0);
+  const netPnl        = holdings.reduce((s, h) => s + h.pnl, 0);
 
   return (
     <div className="bg-[#0a0f0a] border border-[#1a2e1a] rounded-3xl p-8 text-white">
-      {/* Summary */}
+      {/* Summary cards */}
       <div className="grid grid-cols-3 gap-4 mb-8">
         {[
-          { label: "कुल निवेश", val: fmt(totalInvested), color: "text-slate-300" },
-          { label: "Current Value", val: fmt(totalVal), color: "text-emerald-400" },
-          { label: "Net P&L", val: (netPnl >= 0 ? "+" : "-") + fmt(Math.abs(netPnl)), color: netPnl >= 0 ? "text-emerald-400" : "text-red-400" },
+          { label: "कुल निवेश",    val: fmt(totalInvested), color: "text-slate-300" },
+          { label: "Current Value", val: fmt(totalVal),      color: "text-emerald-400" },
+          { label: "Net P&L",       val: (netPnl >= 0 ? "+" : "-") + fmt(Math.abs(netPnl)), color: netPnl >= 0 ? "text-emerald-400" : "text-red-400" },
         ].map(s => (
           <div key={s.label} className="bg-[#111a11] rounded-2xl p-4 border border-[#1e2e1e]">
             <p className="text-xs text-slate-500 mb-1 uppercase tracking-widest">{s.label}</p>
@@ -81,20 +88,18 @@ function PnLTool() {
         ))}
       </div>
 
-      {/* Form */}
+      {/* Input form */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
         {[
-          { key: "ticker", placeholder: "RELIANCE / TCS", label: "Stock Symbol" },
-          { key: "buyPrice", placeholder: "2450.00", label: "Buy Price (₹)", type: "number" },
-          { key: "curPrice", placeholder: "2780.00", label: "Current Price (₹)", type: "number" },
-          { key: "qty", placeholder: "10", label: "Quantity", type: "number" },
+          { key: "ticker",   placeholder: "RELIANCE / TCS", label: "Stock Symbol" },
+          { key: "buyPrice", placeholder: "2450.00",        label: "Buy Price (₹)",     type: "number" },
+          { key: "curPrice", placeholder: "2780.00",        label: "Current Price (₹)", type: "number" },
+          { key: "qty",      placeholder: "10",             label: "Quantity",          type: "number" },
         ].map(f => (
           <div key={f.key}>
             <label className="block text-xs text-slate-500 mb-1">{f.label}</label>
             <input
-              type={f.type || "text"}
-              placeholder={f.placeholder}
-              value={form[f.key]}
+              type={f.type || "text"} placeholder={f.placeholder} value={form[f.key]}
               onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
               className="w-full bg-[#111a11] border border-[#1e2e1e] rounded-xl px-3 py-2.5 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-700"
             />
@@ -104,7 +109,7 @@ function PnLTool() {
           <label className="block text-xs text-slate-500 mb-1">Exchange</label>
           <select value={form.exchange} onChange={e => setForm(p => ({ ...p, exchange: e.target.value }))}
             className="w-full bg-[#111a11] border border-[#1e2e1e] rounded-xl px-3 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-700">
-            {["NSE", "BSE", "NASDAQ", "NYSE"].map(x => <option key={x}>{x}</option>)}
+            {["NSE","BSE","NASDAQ","NYSE"].map(x => <option key={x}>{x}</option>)}
           </select>
         </div>
         <div>
@@ -115,13 +120,14 @@ function PnLTool() {
           </select>
         </div>
       </div>
+
       {error && <p className="text-red-400 text-xs mb-3">{error}</p>}
       <button onClick={add}
         className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors mb-6">
         <Plus size={16} /> Add to Portfolio
       </button>
 
-      {/* Table */}
+      {/* Holdings table */}
       {holdings.length === 0 ? (
         <div className="text-center py-10 text-slate-600">
           <BarChart2 size={36} className="mx-auto mb-3 opacity-30" />
@@ -132,7 +138,7 @@ function PnLTool() {
           <table className="w-full text-sm">
             <thead>
               <tr className="text-xs text-slate-500 uppercase tracking-wider border-b border-[#1e2e1e]">
-                {["Stock", "Buy", "Current", "Qty", "Invested", "Value", "P&L", "%", ""].map(h => (
+                {["Stock","Buy","Current","Qty","Invested","Value","P&L","%",""].map(h => (
                   <th key={h} className="px-4 py-3 text-left font-normal">{h}</th>
                 ))}
               </tr>
@@ -189,10 +195,10 @@ export default function App() {
   }, []);
 
   const navLinks = [
-    { name: "About", id: "about" },
+    { name: "About",    id: "about"    },
     { name: "Features", id: "features" },
-    { name: "P&L Tool", id: "tool" },
-    { name: "Why Us", id: "why" },
+    { name: "P&L Tool", id: "tool"     },
+    { name: "Why Us",   id: "why"      },
   ];
 
   const scroll = (id) => {
@@ -200,20 +206,30 @@ export default function App() {
     setMenuOpen(false);
   };
 
+  const blogPosts = [
+    { emoji: "📈", cat: "Investment", title: "SIP क्या होता है? Beginners Guide",          slug: "sip-kya-hota-hai",                 time: "5 min" },
+    { emoji: "⚖️", cat: "Investment", title: "Mutual Fund vs FD — कौन बेहतर?",             slug: "mutual-fund-vs-fd",                time: "6 min" },
+    { emoji: "📋", cat: "Tax",        title: "Old vs New Tax Regime 2024-25",              slug: "income-tax-old-vs-new-regime",      time: "7 min" },
+    { emoji: "💻", cat: "Earning",    title: "घर बैठे पैसे कमाने के 7 Real तरीके",         slug: "ghar-baithe-paise-kaise-kamayein",  time: "8 min" },
+  ];
+
   return (
     <div className="bg-[#050a05] text-white min-h-screen overflow-x-hidden" style={{ fontFamily: "'DM Sans', sans-serif" }}>
 
-      {/* Google font */}
+      {/* Google Fonts */}
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
 
       {/* ── NAVBAR ─────────────────────────────────────────────────────── */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-[#050a05]/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}>
         <div className="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2 group">
+
+          {/* Logo */}
+          <a href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 bg-emerald-500 rounded-xl flex items-center justify-center font-bold text-white text-lg group-hover:scale-110 transition-transform">₹</div>
             <span className="text-xl font-bold text-white">PaisaPotli</span>
           </a>
 
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(l => (
               <button key={l.id} onClick={() => scroll(l.id)}
@@ -221,8 +237,15 @@ export default function App() {
                 {l.name}
               </button>
             ))}
+            <a href="/tools" className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>
+              Tools
+            </a>
+            <a href="/blog" className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>
+              Blog
+            </a>
           </div>
 
+          {/* Right side */}
           <div className="flex items-center gap-3">
             <button onClick={() => scroll("tool")}
               className="hidden md:block bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-colors">
@@ -234,26 +257,26 @@ export default function App() {
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Dropdown Menu */}
         {menuOpen && (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
-            className="md:hidden bg-[#0a0f0a] border-t border-white/5 px-6 py-4 space-y-3">
+            className="md:hidden bg-[#0a0f0a] border-t border-white/5 px-6 py-4 space-y-1">
             {navLinks.map(l => (
               <button key={l.id} onClick={() => scroll(l.id)}
-                className="block w-full text-left text-slate-300 hover:text-white py-2 text-sm">
+                className="block w-full text-left text-slate-300 hover:text-white py-2.5 text-sm border-b border-white/5">
                 {l.name}
               </button>
             ))}
+            <a href="/tools" className="block text-slate-300 hover:text-white py-2.5 text-sm border-b border-white/5" style={{ textDecoration: "none" }}>Tools</a>
+            <a href="/blog"  className="block text-slate-300 hover:text-white py-2.5 text-sm" style={{ textDecoration: "none" }}>Blog</a>
           </motion.div>
         )}
       </nav>
 
       {/* ── HERO ───────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center pt-20 px-6 overflow-hidden">
-        {/* Background glows */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-900/20 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-emerald-800/15 rounded-full blur-3xl pointer-events-none" />
-        {/* Subtle grid */}
         <div className="absolute inset-0 opacity-[0.03]"
           style={{ backgroundImage: "linear-gradient(#4ade80 1px,transparent 1px),linear-gradient(90deg,#4ade80 1px,transparent 1px)", backgroundSize: "60px 60px" }} />
 
@@ -285,19 +308,18 @@ export default function App() {
                 className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3.5 rounded-xl font-semibold flex items-center gap-2 transition-all hover:scale-105">
                 Try P&L Calculator <ArrowRight size={16} />
               </button>
-              <button onClick={() => scroll("about")}
+              <a href="/blog" style={{ textDecoration: "none" }}
                 className="border border-white/10 hover:border-white/20 bg-white/5 text-white px-6 py-3.5 rounded-xl font-medium flex items-center gap-2 transition-all hover:bg-white/10">
-                <Play size={15} /> Watch Intro
-              </button>
+                <BookOpen size={15} /> Read Articles
+              </a>
             </motion.div>
 
-            {/* Stats row */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
               className="flex gap-8">
               {[
                 { n: 50000, s: "+", l: "Readers" },
-                { n: 100, s: "+", l: "Articles" },
-                { n: 4.9, s: "★", l: "Rating", float: true },
+                { n: 100,   s: "+", l: "Articles" },
+                { n: 4.9,   s: "★", l: "Rating", float: true },
               ].map(st => (
                 <div key={st.l}>
                   <p className="text-2xl font-bold text-white">
@@ -310,7 +332,7 @@ export default function App() {
             </motion.div>
           </div>
 
-          {/* Hero visual card */}
+          {/* Hero Portfolio Card */}
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}>
             <div className="relative">
               <div className="bg-[#0a0f0a] border border-[#1a2e1a] rounded-3xl p-6 shadow-2xl">
@@ -319,9 +341,9 @@ export default function App() {
                   <span className="text-xs bg-emerald-900/40 text-emerald-400 px-2 py-1 rounded-full">● Live</span>
                 </div>
                 {[
-                  { name: "RELIANCE", qty: "25 shares", inv: "₹67,250", val: "₹71,000", pnl: "+₹3,750", pct: "+5.58%", up: true },
-                  { name: "TCS", qty: "10 shares", inv: "₹38,400", val: "₹41,200", pnl: "+₹2,800", pct: "+7.29%", up: true },
-                  { name: "HDFC BANK", qty: "15 shares", inv: "₹22,350", val: "₹21,600", pnl: "-₹750", pct: "-3.36%", up: false },
+                  { name: "RELIANCE",  qty: "25 shares", pnl: "+₹3,750", pct: "+5.58%", up: true  },
+                  { name: "TCS",       qty: "10 shares", pnl: "+₹2,800", pct: "+7.29%", up: true  },
+                  { name: "HDFC BANK", qty: "15 shares", pnl: "-₹750",   pct: "-3.36%", up: false },
                 ].map(s => (
                   <div key={s.name} className="flex items-center justify-between py-3 border-b border-[#111a11] last:border-0">
                     <div>
@@ -339,7 +361,6 @@ export default function App() {
                   <span className="text-sm font-bold text-emerald-400">+₹5,800 (+4.6%)</span>
                 </div>
               </div>
-              {/* Floating badge */}
               <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
                 className="absolute -top-4 -right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-2 rounded-xl shadow-lg">
                 Track Your Gains 📈
@@ -375,15 +396,14 @@ export default function App() {
               आपके लिए क्या है यहाँ?
             </h2>
           </FadeIn>
-
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { icon: PiggyBank, title: "Smart Savings", desc: "रोज़ थोड़ा बचाओ, future के लिए। Practical savings strategies जो actually काम करती हैं।", badge: "Beginner" },
-              { icon: TrendingUp, title: "Investment Guide", desc: "Stocks, Mutual Funds, SIP — सब कुछ step-by-step, बिना jargon के।", badge: "Popular" },
-              { icon: Lightbulb, title: "Online Earning", desc: "घर बैठे पैसे कमाने के real तरीके — freelancing से लेकर passive income तक।", badge: "Trending" },
-              { icon: BookOpen, title: "Hindi Content", desc: "100% हिंदी में — जैसे कोई दोस्त समझा रहा हो। No complex English terms।", badge: "Unique" },
-              { icon: Shield, title: "Trusted Advice", desc: "कोई fake promises नहीं, कोई misleading tips नहीं। बस honest financial guidance।", badge: "Trusted" },
-              { icon: BarChart2, title: "P&L Tracker", desc: "अपने stocks का profit & loss real-time में track करो। बिल्कुल free।", badge: "New ✨" },
+              { icon: PiggyBank,  title: "Smart Savings",    desc: "रोज़ थोड़ा बचाओ, future के लिए। Practical savings strategies जो actually काम करती हैं।",    badge: "Beginner" },
+              { icon: TrendingUp, title: "Investment Guide", desc: "Stocks, Mutual Funds, SIP — सब कुछ step-by-step, बिना jargon के।",                         badge: "Popular"  },
+              { icon: Lightbulb,  title: "Online Earning",   desc: "घर बैठे पैसे कमाने के real तरीके — freelancing से लेकर passive income तक।",                 badge: "Trending" },
+              { icon: BookOpen,   title: "Hindi Content",    desc: "100% हिंदी में — जैसे कोई दोस्त समझा रहा हो। No complex English terms।",                     badge: "Unique"   },
+              { icon: Shield,     title: "Trusted Advice",   desc: "कोई fake promises नहीं, कोई misleading tips नहीं। बस honest financial guidance।",             badge: "Trusted"  },
+              { icon: BarChart2,  title: "P&L Tracker",      desc: "अपने stocks का profit & loss real-time में track करो। बिल्कुल free।",                         badge: "New ✨"   },
             ].map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.08}>
                 <div className="group bg-[#0a0f0a] border border-[#1a2a1a] hover:border-emerald-900 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 cursor-default">
@@ -402,7 +422,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── P&L TOOL SECTION ───────────────────────────────────────────── */}
+      {/* ── P&L TOOL ───────────────────────────────────────────────────── */}
       <section id="tool" className="scroll-mt-24 py-24 px-6 bg-[#07090a]">
         <div className="max-w-5xl mx-auto">
           <FadeIn className="text-center mb-12">
@@ -412,9 +432,7 @@ export default function App() {
             </h2>
             <p className="text-slate-500">अपने stocks का profit & loss instantly calculate करो — NSE, BSE, NASDAQ सब के लिए।</p>
           </FadeIn>
-          <FadeIn>
-            <PnLTool />
-          </FadeIn>
+          <FadeIn><PnLTool /></FadeIn>
         </div>
       </section>
 
@@ -428,10 +446,10 @@ export default function App() {
             </h2>
             <div className="space-y-4">
               {[
-                { title: "100% Hindi Content", desc: "पूरा content सरल हिंदी में — कोई complex terms नहीं।" },
-                { title: "Beginner Friendly", desc: "अगर आप बिल्कुल नए हैं तो भी समझ आएगा — guaranteed।" },
+                { title: "100% Hindi Content",  desc: "पूरा content सरल हिंदी में — कोई complex terms नहीं।" },
+                { title: "Beginner Friendly",   desc: "अगर आप बिल्कुल नए हैं तो भी समझ आएगा — guaranteed।" },
                 { title: "Practical Knowledge", desc: "Theory नहीं, real life में काम आने वाली बातें।" },
-                { title: "No Fake Promises", desc: "कोई '1 दिन में अमीर बनो' वाली बात नहीं — बस सच।" },
+                { title: "No Fake Promises",    desc: "कोई '1 दिन में अमीर बनो' वाली बात नहीं — बस सच।" },
               ].map((item, i) => (
                 <motion.div key={item.title}
                   initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }}
@@ -453,9 +471,9 @@ export default function App() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { n: "50K+", l: "Monthly Readers", icon: "👥" },
-                { n: "100+", l: "Hindi Articles", icon: "📚" },
-                { n: "FREE", l: "Always Free", icon: "🎁" },
-                { n: "4.9★", l: "User Rating", icon: "⭐" },
+                { n: "100+", l: "Hindi Articles",  icon: "📚" },
+                { n: "FREE", l: "Always Free",      icon: "🎁" },
+                { n: "4.9★", l: "User Rating",      icon: "⭐" },
               ].map(s => (
                 <div key={s.l} className="bg-[#0a0f0a] border border-[#1a2a1a] rounded-2xl p-6 text-center hover:border-emerald-900 transition-colors">
                   <div className="text-3xl mb-2">{s.icon}</div>
@@ -465,6 +483,56 @@ export default function App() {
               ))}
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ── BLOG PREVIEW ───────────────────────────────────────────────── */}
+      <section className="py-24 px-6 bg-[#07090a]">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn>
+            <div className="flex items-center justify-between mb-12">
+              <div>
+                <span className="text-emerald-500 text-sm font-semibold uppercase tracking-widest">Latest Articles</span>
+                <h2 className="text-4xl font-bold mt-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  सीखो, समझो, <span className="text-emerald-400 italic">बढ़ाओ।</span>
+                </h2>
+              </div>
+              <a href="/blog" style={{ textDecoration: "none" }}
+                className="hidden md:flex items-center gap-2 border border-emerald-900 text-emerald-400 px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-emerald-900/20 transition-colors">
+                सभी Articles →
+              </a>
+            </div>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {blogPosts.map((post, i) => (
+              <FadeIn key={post.slug} delay={i * 0.08}>
+                <a href={`/blog/${post.slug}`} style={{ textDecoration: "none" }}>
+                  <div className="group bg-[#0a0f0a] border border-[#1a2a1a] hover:border-emerald-900 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 cursor-pointer h-full flex flex-col">
+                    <span className="text-3xl block mb-4">{post.emoji}</span>
+                    <span className="text-xs text-emerald-500 font-semibold uppercase tracking-wider">{post.cat}</span>
+                    <h3 className="text-white font-semibold text-sm mt-2 mb-3 leading-snug flex-1"
+                      style={{ fontFamily: "'Playfair Display', serif" }}>
+                      {post.title}
+                    </h3>
+                    <div className="flex items-center justify-between pt-3 border-t border-[#1a2a1a]">
+                      <span className="text-xs text-slate-600">⏱ {post.time}</span>
+                      <span className="text-emerald-500 text-xs font-semibold group-hover:translate-x-1 transition-transform inline-block">
+                        पढ़ें →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Mobile "see all" link */}
+          <div className="text-center mt-8 md:hidden">
+            <a href="/blog" className="text-emerald-400 text-sm font-semibold" style={{ textDecoration: "none" }}>
+              सभी Articles देखें →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -483,10 +551,10 @@ export default function App() {
               className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-xl font-semibold flex items-center gap-2 transition-all hover:scale-105">
               Try P&L Tool Free <ArrowRight size={16} />
             </button>
-            <button onClick={() => scroll("features")}
-              className="border border-white/10 hover:border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-all hover:bg-white/5">
-              Explore Features
-            </button>
+            <a href="/blog" style={{ textDecoration: "none" }}
+              className="border border-white/10 hover:border-white/20 text-white px-8 py-4 rounded-xl font-medium transition-all hover:bg-white/5 flex items-center gap-2">
+              <BookOpen size={16} /> Read Blog
+            </a>
           </div>
         </FadeIn>
       </section>
@@ -500,8 +568,10 @@ export default function App() {
           </div>
           <p className="text-slate-600 text-sm">© 2025 PaisaPotli.com — Made with ❤️ for India</p>
           <div className="flex gap-6 text-sm text-slate-600">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Contact</a>
+            <a href="/blog"  className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Blog</a>
+            <a href="/tools" className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Tools</a>
+            <a href="#"      className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Privacy</a>
+            <a href="#"      className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Contact</a>
           </div>
         </div>
       </footer>
