@@ -64,8 +64,8 @@ function PnLTool() {
   };
 
   const totalInvested = holdings.reduce((s, h) => s + h.invested, 0);
-  const totalVal = holdings.reduce((s, h) => s + h.currentVal, 0);
-  const netPnl = holdings.reduce((s, h) => s + h.pnl, 0);
+  const totalVal      = holdings.reduce((s, h) => s + h.currentVal, 0);
+  const netPnl        = holdings.reduce((s, h) => s + h.pnl, 0);
 
   return (
     <div style={{ background: "#0a0f0a", border: "1px solid #1a2e1a", borderRadius: "20px", padding: "20px", color: "#fff" }}>
@@ -80,7 +80,7 @@ function PnLTool() {
       {/* Summary Cards */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "8px", marginBottom: "20px" }}>
         {[
-          { label: "निवेश",    val: fmt(totalInvested), color: "#cbd5e1" },
+          { label: "निवेश",   val: fmt(totalInvested), color: "#cbd5e1" },
           { label: "Value",   val: fmt(totalVal),       color: "#10b981" },
           { label: "Net P&L", val: (netPnl >= 0 ? "+" : "-") + fmt(Math.abs(netPnl)), color: netPnl >= 0 ? "#10b981" : "#f87171" },
         ].map(s => (
@@ -92,8 +92,7 @@ function PnLTool() {
       </div>
 
       {/* Toggle Form */}
-      <button
-        onClick={() => setShowForm(p => !p)}
+      <button onClick={() => setShowForm(p => !p)}
         style={{ width: "100%", background: "transparent", border: "1px dashed #1a3020", borderRadius: "12px", padding: "12px", color: "#10b981", fontSize: "14px", fontWeight: "600", cursor: "pointer", marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
         <Plus size={16} /> {showForm ? "Form बंद करें" : "नया Stock Add करें"}
       </button>
@@ -158,7 +157,7 @@ function PnLTool() {
                   {[
                     { l: "Buy", v: fmt(h.buyPrice), c: "#94a3b8" },
                     { l: "Now", v: fmt(h.curPrice), c: "#cbd5e1" },
-                    { l: "Qty", v: h.qty, c: "#94a3b8" },
+                    { l: "Qty", v: h.qty,           c: "#94a3b8" },
                   ].map(d => (
                     <div key={d.l} style={{ textAlign: "center" }}>
                       <p style={{ fontSize: "10px", color: "#475569", margin: "0 0 2px" }}>{d.l}</p>
@@ -194,10 +193,9 @@ export default function App() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
-    return () => () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -216,10 +214,10 @@ export default function App() {
   };
 
   const blogPosts = [
-    { emoji: "📈", cat: "Investment", title: "SIP क्या होता है? Beginners Guide",        slug: "sip-kya-hota-hai",                time: "5 min" },
-    { emoji: "⚖️", cat: "Investment", title: "Mutual Fund vs FD — कौन बेहतर?",          slug: "mutual-fund-vs-fd",               time: "6 min" },
-    { emoji: "📋", cat: "Tax",        title: "Old vs New Tax Regime 2024-25",            slug: "income-tax-old-vs-new-regime",    time: "7 min" },
-    { emoji: "💻", cat: "Earning",    title: "घर बैठे पैसे कमाने के 7 Real तरीके",       slug: "ghar-baithe-paise-kaise-kamayein",time: "8 min" },
+    { emoji: "📈", cat: "Investment", title: "SIP क्या होता है? Beginners Guide",         slug: "sip-kya-hota-hai",                time: "5 min" },
+    { emoji: "⚖️", cat: "Investment", title: "Mutual Fund vs FD — कौन बेहतर?",           slug: "mutual-fund-vs-fd",               time: "6 min" },
+    { emoji: "📋", cat: "Tax",        title: "Old vs New Tax Regime 2024-25",             slug: "income-tax-old-vs-new-regime",    time: "7 min" },
+    { emoji: "💻", cat: "Earning",    title: "घर बैठे पैसे कमाने के 7 Real तरीके",        slug: "ghar-baithe-paise-kaise-kamayein",time: "8 min" },
   ];
 
   return (
@@ -236,15 +234,16 @@ export default function App() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          <div className="hidden md:flex items-center gap-5 lg:gap-6">
             {navLinks.map(l => (
               <button key={l.id} onClick={() => scroll(l.id)}
                 className="text-slate-400 hover:text-white text-sm transition-colors">
                 {l.name}
               </button>
             ))}
-            <a href="/tools" className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>Tools</a>
-            <a href="/blog"  className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>Blog</a>
+            <a href="/tools"  className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>Tools</a>
+            <a href="/blog"   className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>Blog</a>
+            <a href="/about"  className="text-slate-400 hover:text-white text-sm transition-colors" style={{ textDecoration: "none" }}>About</a>
           </div>
 
           {/* Desktop CTA */}
@@ -261,8 +260,7 @@ export default function App() {
               className="bg-emerald-600 text-white px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-1">
               <Calculator size={13} /> Tools
             </a>
-            <button
-              className="text-white p-2 rounded-lg"
+            <button className="text-white p-2 rounded-lg"
               style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
               onClick={() => setMenuOpen(p => !p)}>
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -273,13 +271,8 @@ export default function App() {
         {/* Mobile Full-Screen Menu */}
         <AnimatePresence>
           {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.2 }}
               style={{ position: "fixed", top: "64px", left: 0, right: 0, bottom: 0, background: "#050a05", zIndex: 49, padding: "24px", overflowY: "auto" }}>
-
               <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                 {navLinks.map(l => (
                   <button key={l.id} onClick={() => scroll(l.id)}
@@ -287,17 +280,19 @@ export default function App() {
                     {l.name}
                   </button>
                 ))}
-                <a href="/tools" onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", padding: "16px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)", color: "#cbd5e1", fontSize: "17px", textDecoration: "none" }}>
-                  Tools
-                </a>
-                <a href="/blog" onClick={() => setMenuOpen(false)}
-                  style={{ display: "block", padding: "16px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)", color: "#cbd5e1", fontSize: "17px", textDecoration: "none" }}>
-                  Blog
-                </a>
+                {[
+                  { name: "Tools",          href: "/tools"          },
+                  { name: "Blog",           href: "/blog"           },
+                  { name: "About Us",       href: "/about"          },
+                  { name: "Contact",        href: "/contact"        },
+                  { name: "Privacy Policy", href: "/privacy-policy" },
+                ].map(l => (
+                  <a key={l.name} href={l.href} onClick={() => setMenuOpen(false)}
+                    style={{ display: "block", padding: "16px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)", color: "#cbd5e1", fontSize: "17px", textDecoration: "none" }}>
+                    {l.name}
+                  </a>
+                ))}
               </div>
-
-              {/* Mobile Menu CTAs */}
               <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "12px" }}>
                 <button onClick={() => scroll("tool")}
                   style={{ background: "#10b981", border: "none", borderRadius: "14px", padding: "16px", color: "#fff", fontSize: "16px", fontWeight: "700", cursor: "pointer" }}>
@@ -327,7 +322,6 @@ export default function App() {
                 <Zap size={10} /> India's #1 Hindi Finance Platform
               </span>
             </motion.div>
-
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
               className="font-bold leading-[1.1] mb-5"
               style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(36px, 8vw, 64px)" }}>
@@ -335,14 +329,12 @@ export default function App() {
               <span className="text-emerald-400 italic">समझदारी से</span>{" "}
               बढ़ाओ
             </motion.h1>
-
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
               className="text-slate-400 mb-7 leading-relaxed"
               style={{ fontSize: "clamp(14px, 3vw, 18px)" }}>
               Savings • Investment • Online Earning • Financial Freedom<br />
               <span className="text-slate-500">सरल हिंदी में — बिल्कुल free।</span>
             </motion.p>
-
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-3 mb-10">
               <button onClick={() => scroll("tool")}
@@ -356,12 +348,10 @@ export default function App() {
                 <BookOpen size={15} /> Articles पढ़ें
               </a>
             </motion.div>
-
-            {/* Stats */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
               className="flex gap-6 md:gap-8">
               {[
-                { n: 50000, s: "+", l: "Readers" },
+                { n: 50000, s: "+", l: "Readers"  },
                 { n: 100,   s: "+", l: "Articles" },
                 { n: 4.9,   s: "★", l: "Rating", float: true },
               ].map(st => (
@@ -376,7 +366,7 @@ export default function App() {
             </motion.div>
           </div>
 
-          {/* Hero Card — hidden on small mobile, shown md+ */}
+          {/* Hero Card */}
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
             className="hidden md:block">
             <div className="relative">
@@ -443,12 +433,12 @@ export default function App() {
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
             {[
-              { icon: PiggyBank,  title: "Smart Savings",    desc: "रोज़ थोड़ा बचाओ, future के लिए। Practical savings strategies।",          badge: "Beginner" },
-              { icon: TrendingUp, title: "Investment Guide", desc: "Stocks, Mutual Funds, SIP — step-by-step, बिना jargon के।",              badge: "Popular"  },
-              { icon: Lightbulb,  title: "Online Earning",   desc: "घर बैठे पैसे कमाने के real तरीके — freelancing से passive income।",     badge: "Trending" },
-              { icon: BookOpen,   title: "Hindi Content",    desc: "100% हिंदी में — जैसे कोई दोस्त समझा रहा हो।",                           badge: "Unique"   },
-              { icon: Shield,     title: "Trusted Advice",   desc: "कोई fake promises नहीं। बस honest financial guidance।",                   badge: "Trusted"  },
-              { icon: BarChart2,  title: "P&L Tracker",      desc: "Stocks का profit & loss real-time में track करो। Free।",                   badge: "New ✨"   },
+              { icon: PiggyBank,  title: "Smart Savings",    desc: "रोज़ थोड़ा बचाओ, future के लिए। Practical savings strategies।",      badge: "Beginner" },
+              { icon: TrendingUp, title: "Investment Guide", desc: "Stocks, Mutual Funds, SIP — step-by-step, बिना jargon के।",          badge: "Popular"  },
+              { icon: Lightbulb,  title: "Online Earning",   desc: "घर बैठे पैसे कमाने के real तरीके — freelancing से passive income।", badge: "Trending" },
+              { icon: BookOpen,   title: "Hindi Content",    desc: "100% हिंदी में — जैसे कोई दोस्त समझा रहा हो।",                       badge: "Unique"   },
+              { icon: Shield,     title: "Trusted Advice",   desc: "कोई fake promises नहीं। बस honest financial guidance।",               badge: "Trusted"  },
+              { icon: BarChart2,  title: "P&L Tracker",      desc: "Stocks का profit & loss real-time में track करो। Free।",               badge: "New ✨"   },
             ].map((f, i) => (
               <FadeIn key={f.title} delay={i * 0.07}>
                 <div className="group bg-[#0a0f0a] border border-[#1a2a1a] hover:border-emerald-900 rounded-2xl p-5 md:p-6 transition-all duration-300 active:scale-[0.98]">
@@ -511,7 +501,6 @@ export default function App() {
               ))}
             </div>
           </FadeIn>
-
           <FadeIn direction="left">
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               {[
@@ -548,7 +537,6 @@ export default function App() {
               </a>
             </div>
           </FadeIn>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {blogPosts.map((post, i) => (
               <FadeIn key={post.slug} delay={i * 0.07}>
@@ -569,7 +557,6 @@ export default function App() {
               </FadeIn>
             ))}
           </div>
-
           <div className="text-center mt-6 sm:hidden">
             <a href="/blog" className="text-emerald-400 text-sm font-semibold" style={{ textDecoration: "none" }}>
               सभी Articles देखें →
@@ -605,17 +592,66 @@ export default function App() {
 
       {/* ── FOOTER ─────────────────────────────────────────────────────── */}
       <footer className="border-t border-white/5 py-8 md:py-10 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 md:w-8 md:h-8 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-white text-sm">₹</div>
-            <span className="font-bold text-sm md:text-base">PaisaPotli</span>
+        <div className="max-w-6xl mx-auto">
+
+          {/* Top row */}
+          <div className="flex flex-col md:flex-row justify-between gap-8 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 bg-emerald-500 rounded-lg flex items-center justify-center font-bold text-white text-sm">₹</div>
+                <span className="font-bold">PaisaPotli</span>
+              </div>
+              <p className="text-slate-600 text-xs max-w-xs leading-relaxed">
+                India का #1 Hindi Finance Platform। Free tools + articles — सरल हिंदी में।
+              </p>
+            </div>
+            <div className="flex gap-10 flex-wrap">
+              <div>
+                <p className="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-3">Tools</p>
+                {[
+                  { name: "SIP Calculator", href: "/tools" },
+                  { name: "EMI Calculator", href: "/tools" },
+                  { name: "Tax Calculator", href: "/tools" },
+                  { name: "IPO Tracker",    href: "/tools" },
+                  { name: "Crorepati Calc", href: "/tools" },
+                ].map(l => (
+                  <a key={l.name} href={l.href} className="block text-slate-600 hover:text-white text-xs mb-2 transition-colors" style={{ textDecoration: "none" }}>
+                    {l.name}
+                  </a>
+                ))}
+              </div>
+              <div>
+                <p className="text-xs text-emerald-600 font-semibold uppercase tracking-wider mb-3">Company</p>
+                {[
+                  { name: "Home",           href: "/"               },
+                  { name: "Blog",           href: "/blog"           },
+                  { name: "About Us",       href: "/about"          },
+                  { name: "Contact",        href: "/contact"        },
+                  { name: "Privacy Policy", href: "/privacy-policy" },
+                ].map(l => (
+                  <a key={l.name} href={l.href} className="block text-slate-600 hover:text-white text-xs mb-2 transition-colors" style={{ textDecoration: "none" }}>
+                    {l.name}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
-          <p className="text-slate-600 text-xs md:text-sm text-center">© 2025 PaisaPotli.com — Made with ❤️ for India</p>
-          <div className="flex gap-4 md:gap-6 text-xs md:text-sm text-slate-600">
-            <a href="/blog"  className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Blog</a>
-            <a href="/tools" className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Tools</a>
-            <a href="#"      className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Privacy</a>
-            <a href="#"      className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Contact</a>
+
+          {/* Disclaimer */}
+          <div className="bg-[#0a0f0a] border border-[#1a2e1a] rounded-xl p-4 mb-6">
+            <p className="text-xs text-slate-700 leading-relaxed">
+              ⚠️ <span className="text-slate-600">Disclaimer:</span> PaisaPotli.com पर दी गई जानकारी केवल educational purpose के लिए है। यह financial advice नहीं है। Invest करने से पहले SEBI registered advisor से consult करें।
+            </p>
+          </div>
+
+          {/* Bottom row */}
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-slate-700 text-xs text-center">© 2025 PaisaPotli.com — Made with ❤️ for India</p>
+            <div className="flex gap-4 text-xs text-slate-700">
+              <a href="/privacy-policy" className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Privacy</a>
+              <a href="/contact"        className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>Contact</a>
+              <a href="/about"          className="hover:text-white transition-colors" style={{ textDecoration: "none" }}>About</a>
+            </div>
           </div>
         </div>
       </footer>
@@ -625,9 +661,9 @@ export default function App() {
         style={{ background: "rgba(5,10,5,0.97)", backdropFilter: "blur(12px)", borderTop: "1px solid rgba(255,255,255,0.06)", padding: "8px 0 env(safe-area-inset-bottom,8px)" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
           {[
-            { label: "Home",  icon: "🏠", href: "/" },
+            { label: "Home",  icon: "🏠", href: "/"      },
             { label: "Tools", icon: "🔢", href: "/tools" },
-            { label: "Blog",  icon: "📖", href: "/blog" },
+            { label: "Blog",  icon: "📖", href: "/blog"  },
             { label: "P&L",   icon: "📈", action: () => scroll("tool") },
           ].map(item => (
             item.href
@@ -642,8 +678,6 @@ export default function App() {
           ))}
         </div>
       </div>
-
-      {/* Bottom nav ke liye space */}
       <div className="md:hidden h-16" />
 
     </div>

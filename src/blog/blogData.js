@@ -1,360 +1,366 @@
 export const categories = [
-  { id: "all",        label: "सभी",          color: "#10b981" },
-  { id: "investment", label: "Investment",   color: "#3b82f6" },
-  { id: "savings",    label: "Savings",      color: "#f59e0b" },
-  { id: "tax",        label: "Tax",          color: "#8b5cf6" },
+  { id: "all",        label: "सभी",           color: "#10b981" },
+  { id: "investment", label: "Investment",    color: "#3b82f6" },
+  { id: "savings",    label: "Savings",       color: "#f59e0b" },
+  { id: "tax",        label: "Tax",           color: "#8b5cf6" },
   { id: "earning",    label: "Online Earning",color: "#ec4899" },
+  { id: "basics",     label: "Finance Basics",color: "#14b8a6" },
 ];
 
 export const posts = [
   {
-    id: 1,
-    slug: "sip-kya-hota-hai",
-    title: "SIP क्या होता है? — Beginners के लिए पूरी Guide",
-    excerpt: "SIP यानी Systematic Investment Plan — हर महीने थोड़ा-थोड़ा invest करके बड़ा corpus बनाने का सबसे आसान तरीका। जानिए कैसे शुरू करें।",
-    category: "investment",
-    readTime: "5 min",
-    date: "15 Jan 2025",
-    featured: true,
-    emoji: "📈",
-    content: [
-      {
-        type: "intro",
-        text: "अगर आप invest करना चाहते हैं लेकिन समझ नहीं आता कहाँ से शुरू करें — तो SIP आपके लिए सबसे बेहतरीन option है। यह article पढ़कर आप आज ही SIP शुरू कर सकते हैं।"
-      },
-      {
-        type: "heading",
-        text: "SIP क्या होता है?"
-      },
-      {
-        type: "para",
-        text: "SIP यानी Systematic Investment Plan। इसमें आप हर महीने एक fixed amount — जैसे ₹500, ₹1000, या ₹5000 — किसी Mutual Fund में invest करते हैं। यह बिल्कुल वैसा है जैसे हर महीने बैंक में FD करते हो, लेकिन returns बहुत ज़्यादा मिलते हैं।"
-      },
-      {
-        type: "highlight",
-        text: "💡 अगर आप ₹5,000/month, 12% return पर, 20 साल के लिए invest करें — तो ₹12 लाख लगाकर ₹49.9 लाख बना सकते हैं!"
-      },
-      {
-        type: "heading",
-        text: "SIP के फायदे क्या हैं?"
-      },
-      {
-        type: "list",
-        items: [
-          "Rupee Cost Averaging — market ऊपर-नीचे होने पर भी average cost कम रहती है",
-          "Compounding का जादू — returns पर भी returns मिलते हैं",
-          "₹100 से भी शुरू कर सकते हैं",
-          "कभी भी बंद या pause कर सकते हैं",
-          "Tax benefit मिलती है ELSS funds में (80C के तहत)"
-        ]
-      },
-      {
-        type: "heading",
-        text: "SIP कैसे शुरू करें? — Step by Step"
-      },
-      {
-        type: "steps",
-        items: [
-          { title: "KYC करवाएं", desc: "Aadhaar + PAN card से online KYC 10 मिनट में हो जाती है।" },
-          { title: "App download करें", desc: "Groww, Zerodha Coin, या Paytm Money — कोई भी free app।" },
-          { title: "Fund चुनें", desc: "Beginners के लिए Index Fund या Large Cap Fund best हैं।" },
-          { title: "Amount और date set करें", desc: "Monthly date set करें — salary आने के 2-3 दिन बाद।" },
-          { title: "Auto-debit on करें", desc: "Bank से auto-debit लगाएं — फिर भूलने की tension नहीं।" }
-        ]
-      },
-      {
-        type: "heading",
-        text: "Beginners के लिए Best SIP Funds"
-      },
-      {
-        type: "table",
-        headers: ["Fund Type", "Expected Return", "Risk", "किसके लिए"],
-        rows: [
-          ["Nifty 50 Index Fund", "10-12% p.a.", "Low-Medium", "बिल्कुल नए investors"],
-          ["Large Cap Fund",      "11-13% p.a.", "Medium",     "Stable growth चाहिए"],
-          ["ELSS Fund",           "12-15% p.a.", "Medium",     "Tax बचाना है"],
-          ["Mid Cap Fund",        "14-18% p.a.", "High",       "5+ साल के लिए"],
-        ]
-      },
-      {
-        type: "heading",
-        text: "Common Mistakes जो नए लोग करते हैं"
-      },
-      {
-        type: "list",
-        items: [
-          "Market गिरने पर SIP बंद कर देना — यह सबसे बड़ी गलती है!",
-          "Short term (1-2 साल) के लिए SIP करना",
-          "सिर्फ पिछले returns देखकर fund चुनना",
-          "बहुत ज़्यादा funds में invest करना",
-          "Emergency fund बनाए बिना SIP शुरू करना"
-        ]
-      },
-      {
-        type: "conclusion",
-        text: "SIP कोई rocket science नहीं है। आज ही ₹500 से शुरू करें। 10 साल बाद आप खुद को धन्यवाद देंगे। हमारा SIP Calculator use करें और देखें आपका पैसा कितना बढ़ेगा!"
-      }
-    ]
+    id:1, slug:"sip-kya-hota-hai", featured:true, emoji:"📈",
+    title:"SIP क्या होता है? — Beginners के लिए पूरी Guide",
+    excerpt:"SIP यानी Systematic Investment Plan — हर महीने थोड़ा-थोड़ा invest करके बड़ा corpus बनाने का सबसे आसान तरीका। जानिए कैसे शुरू करें।",
+    category:"investment", readTime:"5 min", date:"15 Jan 2025",
+    content:[
+      {type:"intro",text:"अगर आप invest करना चाहते हैं लेकिन समझ नहीं आता कहाँ से शुरू करें — तो SIP आपके लिए सबसे बेहतरीन option है।"},
+      {type:"heading",text:"SIP क्या होता है?"},
+      {type:"para",text:"SIP यानी Systematic Investment Plan। इसमें आप हर महीने एक fixed amount — जैसे ₹500, ₹1000, या ₹5000 — किसी Mutual Fund में invest करते हैं।"},
+      {type:"highlight",text:"💡 अगर आप ₹5,000/month, 12% return पर, 20 साल के लिए invest करें — तो ₹12 लाख लगाकर ₹49.9 लाख बना सकते हैं!"},
+      {type:"heading",text:"SIP के फायदे"},
+      {type:"list",items:["Rupee Cost Averaging — market ऊपर-नीचे होने पर भी average cost कम रहती है","Compounding का जादू — returns पर भी returns मिलते हैं","₹100 से भी शुरू कर सकते हैं","कभी भी बंद या pause कर सकते हैं","Tax benefit ELSS funds में"]},
+      {type:"heading",text:"SIP कैसे शुरू करें?"},
+      {type:"steps",items:[{title:"KYC करवाएं",desc:"Aadhaar + PAN से online KYC 10 मिनट में।"},{title:"App download करें",desc:"Groww, Zerodha Coin, या Paytm Money।"},{title:"Fund चुनें",desc:"Beginners के लिए Index Fund best है।"},{title:"SIP set करें",desc:"Monthly date और amount set करें।"}]},
+      {type:"table",headers:["Fund Type","Return","Risk"],rows:[["Nifty 50 Index","10-12%","Low"],["Large Cap","11-13%","Medium"],["ELSS","12-15%","Medium"],["Mid Cap","14-18%","High"]]},
+      {type:"conclusion",text:"SIP कोई rocket science नहीं है। आज ही ₹500 से शुरू करें। 10 साल बाद आप खुद को धन्यवाद देंगे।"},
+    ],
   },
   {
-    id: 2,
-    slug: "mutual-fund-vs-fd",
-    title: "Mutual Fund vs Fixed Deposit — 2025 में क्या बेहतर है?",
-    excerpt: "FD safe लगती है लेकिन Mutual Fund ज़्यादा return देता है। दोनों को compare करें और जानें आपके लिए क्या सही है।",
-    category: "investment",
-    readTime: "6 min",
-    date: "20 Jan 2025",
-    featured: true,
-    emoji: "⚖️",
-    content: [
-      {
-        type: "intro",
-        text: "India में अभी भी करोड़ों लोग FD को ही सबसे safe investment मानते हैं। लेकिन क्या FD सच में best option है? आइए honestly compare करते हैं।"
-      },
-      {
-        type: "heading",
-        text: "एक नज़र में Comparison"
-      },
-      {
-        type: "table",
-        headers: ["Feature", "Fixed Deposit", "Mutual Fund (SIP)"],
-        rows: [
-          ["Returns",        "6-7.5% p.a.",      "10-15% p.a. (avg)"],
-          ["Risk",           "लगभग Zero",         "Market से जुड़ा"],
-          ["Tax",            "Taxable as income", "LTCG: 10% after 1L"],
-          ["Liquidity",      "Lock-in period",    "कभी भी निकालो"],
-          ["Minimum Amount", "₹1,000",            "₹100"],
-          ["Inflation Beat", "❌ नहीं",            "✅ हाँ"],
-        ]
-      },
-      {
-        type: "highlight",
-        text: "⚠️ अगर Inflation 6% है और FD 7% return दे रही है — तो real return सिर्फ 1% है! Mutual Fund 12% return पर real return 6% मिलता है।"
-      },
-      {
-        type: "heading",
-        text: "FD कब सही है?"
-      },
-      {
-        type: "list",
-        items: [
-          "Emergency fund रखना हो (3-6 महीने का खर्च)",
-          "1-2 साल में पैसा चाहिए हो",
-          "बिल्कुल risk नहीं लेना",
-          "Senior citizens के लिए fixed income",
-          "Retirement के बाद stable income"
-        ]
-      },
-      {
-        type: "heading",
-        text: "Mutual Fund कब सही है?"
-      },
-      {
-        type: "list",
-        items: [
-          "3+ साल के लिए invest करना हो",
-          "Inflation से ज़्यादा return चाहिए",
-          "Tax efficiently invest करना हो",
-          "Wealth build करना हो long term में",
-          "Regular income की ज़रूरत न हो"
-        ]
-      },
-      {
-        type: "heading",
-        text: "₹1 लाख — 10 साल बाद कितना बनेगा?"
-      },
-      {
-        type: "table",
-        headers: ["Investment", "Rate", "10 साल बाद"],
-        rows: [
-          ["Savings Account", "3.5%",  "₹1,41,060"],
-          ["Fixed Deposit",   "7%",    "₹1,96,715"],
-          ["Mutual Fund",     "12%",   "₹3,10,585"],
-          ["Mutual Fund",     "15%",   "₹4,04,556"],
-        ]
-      },
-      {
-        type: "conclusion",
-        text: "सच यह है कि FD और Mutual Fund दोनों की जगह है। Emergency fund → FD, Long-term wealth → Mutual Fund SIP। Smart investor दोनों use करता है। हमारे SIP Calculator से अभी calculate करें!"
-      }
-    ]
+    id:2, slug:"mutual-fund-vs-fd", featured:true, emoji:"⚖️",
+    title:"Mutual Fund vs Fixed Deposit — 2025 में क्या बेहतर है?",
+    excerpt:"FD safe लगती है लेकिन Mutual Fund ज़्यादा return देता है। दोनों को compare करें और जानें आपके लिए क्या सही है।",
+    category:"investment", readTime:"6 min", date:"20 Jan 2025",
+    content:[
+      {type:"intro",text:"India में अभी भी करोड़ों लोग FD को सबसे safe investment मानते हैं। लेकिन क्या FD सच में best option है?"},
+      {type:"heading",text:"एक नज़र में Comparison"},
+      {type:"table",headers:["Feature","FD","Mutual Fund"],rows:[["Returns","6-7.5%","10-15%"],["Risk","Zero","Market"],["Tax","Income tax","LTCG 10%"],["Liquidity","Lock-in","Anytime"],["Min Amount","₹1,000","₹100"],["Inflation Beat","❌","✅"]]},
+      {type:"highlight",text:"⚠️ Inflation 6% है और FD 7% दे रही है — real return सिर्फ 1%!"},
+      {type:"heading",text:"FD कब सही है?"},
+      {type:"list",items:["Emergency fund के लिए","1-2 साल में पैसा चाहिए","Zero risk tolerance","Senior citizens"]},
+      {type:"heading",text:"₹1 लाख — 10 साल बाद"},
+      {type:"table",headers:["Investment","Return","10 साल बाद"],rows:[["Savings Account","3.5%","₹1.41L"],["FD","7%","₹1.97L"],["Mutual Fund","12%","₹3.11L"],["Mutual Fund","15%","₹4.05L"]]},
+      {type:"conclusion",text:"Emergency fund → FD, Long-term wealth → Mutual Fund SIP। Smart investor दोनों use करता है।"},
+    ],
   },
   {
-    id: 3,
-    slug: "income-tax-old-vs-new-regime",
-    title: "Income Tax 2024-25: Old Regime या New Regime — कौन सा चुनें?",
-    excerpt: "Budget 2024 के बाद New Regime default हो गया है। लेकिन क्या यह आपके लिए सही है? पूरी calculation यहाँ समझें।",
-    category: "tax",
-    readTime: "7 min",
-    date: "25 Jan 2025",
-    featured: false,
-    emoji: "📋",
-    content: [
-      {
-        type: "intro",
-        text: "FY 2024-25 से New Tax Regime default हो गई है। अगर आपने कुछ नहीं किया तो employer automatically New Regime में TDS काट रहा है। जानें कि आपके लिए कौन सा option फायदेमंद है।"
-      },
-      {
-        type: "heading",
-        text: "New Regime के Tax Slabs (FY 2024-25)"
-      },
-      {
-        type: "table",
-        headers: ["Income Range", "Tax Rate"],
-        rows: [
-          ["₹0 – ₹3,00,000",       "0%"],
-          ["₹3,00,001 – ₹6,00,000", "5%"],
-          ["₹6,00,001 – ₹9,00,000", "10%"],
-          ["₹9,00,001 – ₹12,00,000","15%"],
-          ["₹12,00,001 – ₹15,00,000","20%"],
-          ["₹15,00,000 से ऊपर",     "30%"],
-        ]
-      },
-      {
-        type: "highlight",
-        text: "🎉 New Regime में ₹7 लाख तक income पर Rebate 87A की वजह से ZERO TAX है! और ₹75,000 Standard Deduction भी मिलती है।"
-      },
-      {
-        type: "heading",
-        text: "Old Regime के Tax Slabs (FY 2024-25)"
-      },
-      {
-        type: "table",
-        headers: ["Income Range", "Tax Rate"],
-        rows: [
-          ["₹0 – ₹2,50,000",        "0%"],
-          ["₹2,50,001 – ₹5,00,000",  "5%"],
-          ["₹5,00,001 – ₹10,00,000", "20%"],
-          ["₹10,00,000 से ऊपर",      "30%"],
-        ]
-      },
-      {
-        type: "heading",
-        text: "Old Regime किसके लिए फायदेमंद है?"
-      },
-      {
-        type: "list",
-        items: [
-          "80C में ₹1.5 लाख invest करते हैं (PPF, ELSS, LIC)",
-          "HRA claim करते हैं (किराए पर रहते हैं)",
-          "Home loan है — ₹2 लाख interest deduction",
-          "NPS में invest करते हैं (80CCD 1B — ₹50,000 extra)",
-          "Health Insurance है (80D — ₹25,000-50,000)"
-        ]
-      },
-      {
-        type: "heading",
-        text: "Practical Example — ₹10 लाख salary"
-      },
-      {
-        type: "table",
-        headers: ["Deduction", "Old Regime", "New Regime"],
-        rows: [
-          ["Standard Deduction", "₹50,000", "₹75,000"],
-          ["80C",                "₹1,50,000","❌"],
-          ["80D",                "₹25,000",  "❌"],
-          ["HRA",                "₹60,000",  "❌"],
-          ["Taxable Income",     "₹7,15,000","₹9,25,000"],
-          ["Total Tax + Cess",   "₹54,600",  "₹58,500"],
-        ]
-      },
-      {
-        type: "conclusion",
-        text: "Is case में Old Regime ₹3,900 better है। लेकिन हर person की situation अलग होती है। हमारे Tax Calculator से अपनी exact calculation करें और देखें आपके लिए कौन सा regime बेहतर है!"
-      }
-    ]
+    id:3, slug:"income-tax-old-vs-new-regime", featured:false, emoji:"📋",
+    title:"Income Tax 2024-25: Old Regime या New Regime — कौन सा चुनें?",
+    excerpt:"New Regime default हो गया है। लेकिन क्या यह आपके लिए सही है? पूरी calculation यहाँ समझें।",
+    category:"tax", readTime:"7 min", date:"25 Jan 2025",
+    content:[
+      {type:"intro",text:"FY 2024-25 से New Tax Regime default हो गई है। जानें कौन सा option फायदेमंद है।"},
+      {type:"heading",text:"New Regime Tax Slabs"},
+      {type:"table",headers:["Income","Tax Rate"],rows:[["₹0-3L","0%"],["₹3-6L","5%"],["₹6-9L","10%"],["₹9-12L","15%"],["₹12-15L","20%"],["₹15L+","30%"]]},
+      {type:"highlight",text:"🎉 New Regime में ₹7 लाख तक ZERO TAX (Rebate 87A के बाद)!"},
+      {type:"heading",text:"Old Regime किसके लिए?"},
+      {type:"list",items:["80C में ₹1.5L invest करते हैं","HRA claim करते हैं","Home loan है","NPS invest करते हैं","Health insurance है"]},
+      {type:"conclusion",text:"हमारे Tax Calculator से अपनी exact calculation करें।"},
+    ],
   },
   {
-    id: 4,
-    slug: "ghar-baithe-paise-kaise-kamayein",
-    title: "घर बैठे पैसे कैसे कमाएं — 2025 में 7 Real तरीके",
-    excerpt: "Freelancing से लेकर YouTube तक — ये 7 तरीके real हैं और लाखों लोग इनसे पैसे कमा रहे हैं। कोई fake promise नहीं।",
-    category: "earning",
-    readTime: "8 min",
-    date: "1 Feb 2025",
-    featured: false,
-    emoji: "💻",
-    content: [
-      {
-        type: "intro",
-        text: "Internet पर '1 दिन में ₹10,000 कमाओ' जैसे बहुत से ads आते हैं — ये सब scam हैं। लेकिन घर से genuinely पैसे कमाने के real तरीके भी हैं। यहाँ सिर्फ वही बताएंगे जो actually काम करते हैं।"
-      },
-      {
-        type: "heading",
-        text: "1. Freelancing — सबसे Fast तरीका"
-      },
-      {
-        type: "para",
-        text: "अगर आपको कोई skill आती है — writing, designing, coding, video editing, data entry — तो आप Fiverr, Upwork, या Freelancer पर काम ढूंढ सकते हैं। शुरुआत में ₹500-1000 per project मिलेगा, experience के साथ ₹5000-50,000 तक जा सकता है।"
-      },
-      {
-        type: "highlight",
-        text: "💰 एक अच्छा freelancer India में ₹30,000-₹1,50,000/month घर बैठे कमाता है।"
-      },
-      {
-        type: "heading",
-        text: "2. YouTube Channel"
-      },
-      {
-        type: "para",
-        text: "YouTube पर monetization के लिए 1000 subscribers और 4000 watch hours चाहिए। Finance, cooking, education, tech — किसी भी topic पर channel बना सकते हैं। Hindi content creators को बहुत अच्छे views मिलते हैं।"
-      },
-      {
-        type: "heading",
-        text: "3. Blogging / Content Writing"
-      },
-      {
-        type: "para",
-        text: "एक अच्छा blog Google AdSense से ₹10,000-₹1,00,000/month कमा सकता है। शुरुआत में 6-12 महीने लगते हैं। Hindi blogs की demand बहुत बढ़ रही है क्योंकि competition अभी कम है।"
-      },
-      {
-        type: "heading",
-        text: "4. Online Tuition / Teaching"
-      },
-      {
-        type: "para",
-        text: "Vedantu, Unacademy, या खुद YouTube/Zoom पर पढ़ा सकते हैं। Subject teacher, language tutor, या competitive exam coach — सभी की demand है। ₹200-500 per hour आसानी से मिलते हैं।"
-      },
-      {
-        type: "heading",
-        text: "5. Stock Market / Trading (Careful!)"
-      },
-      {
-        type: "para",
-        text: "Stock market से पैसे कमाए जा सकते हैं — लेकिन पहले सीखना बहुत ज़रूरी है। बिना knowledge के trading में 90% लोग पैसे खोते हैं। पहले Investing सीखें, फिर Trading।"
-      },
-      {
-        type: "heading",
-        text: "6. Affiliate Marketing"
-      },
-      {
-        type: "para",
-        text: "Amazon, Flipkart, या किसी भी company का affiliate बनें। उनके products का link share करें। हर sale पर 2-15% commission मिलता है। अगर आपके पास blog, YouTube, या बड़ा social media following है तो यह बहुत अच्छा काम करता है।"
-      },
-      {
-        type: "heading",
-        text: "7. Sell on Meesho / Amazon"
-      },
-      {
-        type: "para",
-        text: "Meesho पर reselling से शुरुआत करें — zero investment में। या Amazon/Flipkart पर अपना product sell करें। बहुत से लोग घर से handicrafts, pickles, homemade products बेचकर ₹20,000-50,000/month कमा रहे हैं।"
-      },
-      {
-        type: "table",
-        headers: ["तरीका", "शुरुआती Investment", "Time to First Income", "Potential"],
-        rows: [
-          ["Freelancing",    "Zero",      "1-4 weeks",  "₹20K-1.5L/month"],
-          ["YouTube",        "Camera/Phone","6-12 months","Unlimited"],
-          ["Blogging",       "₹3-5K/year","6-12 months","₹10K-1L/month"],
-          ["Online Teaching","Zero",      "1-2 weeks",  "₹10K-50K/month"],
-          ["Affiliate",      "Zero",      "1-3 months", "₹5K-50K/month"],
-          ["Meesho Resell",  "Zero",      "1 week",     "₹5K-20K/month"],
-        ]
-      },
-      {
-        type: "conclusion",
-        text: "कोई भी एक तरीका चुनो और उसमें seriously 3-6 महीने लगाओ। Short-cut नहीं है। लेकिन consistent रहे तो results ज़रूर आते हैं। याद रखो — Online earning + Smart investing = Financial Freedom।"
-      }
-    ]
+    id:4, slug:"ghar-baithe-paise-kaise-kamayein", featured:false, emoji:"💻",
+    title:"घर बैठे पैसे कैसे कमाएं — 2025 में 7 Real तरीके",
+    excerpt:"Freelancing से YouTube तक — ये 7 तरीके real हैं। कोई fake promise नहीं।",
+    category:"earning", readTime:"8 min", date:"1 Feb 2025",
+    content:[
+      {type:"intro",text:"Internet पर '1 दिन में ₹10,000' वाले scam हैं। लेकिन genuinely पैसे कमाने के real तरीके भी हैं।"},
+      {type:"heading",text:"1. Freelancing"},
+      {type:"para",text:"Fiverr, Upwork पर writing, design, coding बेचो। शुरुआत में ₹500-1000 per project, बाद में ₹50,000 तक।"},
+      {type:"highlight",text:"💰 अच्छा freelancer ₹30,000-₹1,50,000/month कमाता है।"},
+      {type:"table",headers:["तरीका","Investment","Time","Potential"],rows:[["Freelancing","Zero","1-4 weeks","₹20K-1.5L"],["YouTube","Phone","6-12 months","Unlimited"],["Blogging","₹3-5K/yr","6-12 months","₹10K-1L"],["Teaching","Zero","1-2 weeks","₹10K-50K"]]},
+      {type:"conclusion",text:"एक तरीका चुनो और 3-6 महीने consistent रहो। Results ज़रूर आते हैं।"},
+    ],
+  },
+  {
+    id:5, slug:"ppf-account-kya-hai", featured:false, emoji:"🏛️",
+    title:"PPF Account क्या है? — Tax-Free Savings का सबसे Safe तरीका",
+    excerpt:"PPF — Government backed, tax-free returns, 7.1% guaranteed। जानिए PPF कैसे खोलें।",
+    category:"savings", readTime:"5 min", date:"5 Feb 2025",
+    content:[
+      {type:"intro",text:"PPF India की सबसे popular tax-saving scheme है। Government guaranteed returns, tax-free — यह combination कम investments में मिलता है।"},
+      {type:"heading",text:"PPF क्या है?"},
+      {type:"para",text:"PPF एक Government की long-term savings scheme है। Minimum ₹500 और maximum ₹1.5 लाख per year। Current interest rate 7.1% p.a."},
+      {type:"highlight",text:"🎯 PPF EEE category — Investment, Returns, Maturity — तीनों Tax-Free!"},
+      {type:"heading",text:"Key Features"},
+      {type:"list",items:["Lock-in: 15 साल","Interest: 7.1% p.a.","80C tax deduction","Loan: 3rd-6th year से","Partial withdrawal: 7th year से"]},
+      {type:"heading",text:"PPF vs FD vs ELSS"},
+      {type:"table",headers:["Feature","PPF","FD","ELSS"],rows:[["Returns","7.1% guaranteed","6-7.5%","12-15%"],["Tax","EEE Free","Taxable","80C+LTCG"],["Lock-in","15 साल","Flexible","3 साल"],["Risk","Zero","Zero","Market"]]},
+      {type:"conclusion",text:"PPF long-term, risk-free, tax-free savings के लिए best option है।"},
+    ],
+  },
+  {
+    id:6, slug:"share-market-beginners-guide", featured:false, emoji:"📊",
+    title:"Share Market में Invest कैसे करें — Beginners की पूरी Guide",
+    excerpt:"Share market से डरो मत — समझो। यह guide पढ़कर आप safely पहला share खरीद सकते हैं।",
+    category:"investment", readTime:"8 min", date:"10 Feb 2025",
+    content:[
+      {type:"intro",text:"Share market को लोग जुआ समझते हैं — यह गलत है। सही knowledge के साथ यह wealth बनाने का powerful तरीका है।"},
+      {type:"heading",text:"शुरू करने से पहले 5 बातें"},
+      {type:"list",items:["Emergency fund पहले बनाएं","5+ साल के लिए ही invest करें","Loan लेकर invest मत करो","एक साथ सब invest मत करो","पहले सीखो, फिर invest करो"]},
+      {type:"heading",text:"Demat Account कैसे खोलें?"},
+      {type:"steps",items:[{title:"Broker चुनें",desc:"Zerodha, Groww, Upstox — India के top brokers।"},{title:"Documents",desc:"PAN, Aadhaar, bank account।"},{title:"Online Apply",desc:"Form भरें, documents upload करें।"},{title:"KYC",desc:"Video KYC — 24-48 hours में active।"},{title:"पहला Trade",desc:"₹1000-5000 से शुरू — Index Fund buy करें।"}]},
+      {type:"heading",text:"Beginners Strategy"},
+      {type:"list",items:["Nifty 50 Index Fund — safest start","Large cap: TCS, HDFC, Reliance","Monthly SIP — timing tension नहीं","5 साल+ hold करो","Diversify करो"]},
+      {type:"conclusion",text:"Patience सबसे important है। छोटे से शुरू करो, सीखते रहो, long-term hold करो।"},
+    ],
+  },
+  {
+    id:7, slug:"credit-score-kaise-badhayein", featured:false, emoji:"💳",
+    title:"CIBIL Score कैसे बढ़ाएं? — 6 महीने में 750+ Score",
+    excerpt:"Low CIBIL score से loan reject हो रहा है? इन तरीकों से 6 महीने में 750+ score बना सकते हैं।",
+    category:"basics", readTime:"6 min", date:"15 Feb 2025",
+    content:[
+      {type:"intro",text:"CIBIL score आपकी financial health का report card है। 750+ score से best interest rates पर loan मिलता है।"},
+      {type:"table",headers:["Score","Rating","Loan"],rows:[["750-900","Excellent","आसानी से"],["700-749","Good","मिलेगा"],["650-699","Fair","मुश्किल"],["600-649","Poor","बहुत मुश्किल"],["300-599","Bad","Almost impossible"]]},
+      {type:"heading",text:"7 तरीके Score बढ़ाने के"},
+      {type:"list",items:["EMI/Credit card bills time पर भरें — #1 factor","Credit utilization 30% से कम रखें","Multiple loans एक साथ मत लो","Old card बंद मत करो","Full payment करो minimum नहीं","CIBIL report errors dispute करो","Secured card से history build करो"]},
+      {type:"highlight",text:"💡 Free CIBIL check: CIBIL official website पर साल में एक बार free।"},
+      {type:"conclusion",text:"3-6 महीने consistent रहें — score ज़रूर बढ़ेगा।"},
+    ],
+  },
+  {
+    id:8, slug:"emergency-fund-kya-hai", featured:false, emoji:"🛡️",
+    title:"Emergency Fund क्या है और कितना होना चाहिए?",
+    excerpt:"Job loss, medical emergency — कभी भी आ सकती है। Emergency fund आपकी financial safety net है।",
+    category:"savings", readTime:"5 min", date:"20 Feb 2025",
+    content:[
+      {type:"intro",text:"COVID-19 ने सिखाया — जिनके पास emergency fund था, उन्होंने बिना loan लिए crisis manage किया।"},
+      {type:"heading",text:"कितना चाहिए?"},
+      {type:"para",text:"3-6 महीने के monthly expenses। ₹30,000 खर्च है तो ₹90,000-1,80,000 emergency fund।"},
+      {type:"highlight",text:"📌 Formula: Monthly Expenses × 6 = Emergency Fund Target"},
+      {type:"heading",text:"कहाँ रखें?"},
+      {type:"list",items:["High-yield savings account","Liquid Mutual Fund — better returns","FD with sweep-in","NOT in stocks — crash में कम होगा"]},
+      {type:"steps",items:[{title:"Target calculate करें",desc:"Monthly expenses × 6।"},{title:"Separate account",desc:"Regular savings से अलग।"},{title:"Monthly contribute",desc:"Income का 10-20%।"},{title:"Auto-transfer",desc:"Salary आते ही automatic।"}]},
+      {type:"conclusion",text:"Emergency fund बनाना boring लगता है — लेकिन यह आपकी smartest financial decision होगी।"},
+    ],
+  },
+  {
+    id:9, slug:"term-insurance-kya-hota-hai", featured:false, emoji:"🏥",
+    title:"Term Insurance क्या होता है? — Family को Secure करने का सही तरीका",
+    excerpt:"₹500/month में ₹1 Crore का cover — यह possible है। Term Insurance के बारे में सब कुछ जानें।",
+    category:"basics", readTime:"6 min", date:"25 Feb 2025",
+    content:[
+      {type:"intro",text:"अगर family depend करती है — term insurance लेना आपकी financial duty है।"},
+      {type:"para",text:"Term insurance pure life insurance है। हर साल छोटी premium। Death पर nominee को full sum assured।"},
+      {type:"highlight",text:"💡 30 साल की उम्र में ₹1 Crore का plan सिर्फ ₹500-600/month!"},
+      {type:"table",headers:["Type","Premium","Coverage","Recommendation"],rows:[["Term","बहुत कम","High","✅ Best"],["Endowment","High","Low","❌ Avoid"],["ULIP","Very High","Medium","❌ Avoid"]]},
+      {type:"heading",text:"कितना Coverage लें?"},
+      {type:"list",items:["Minimum: Annual income × 10","Ideal: Annual income × 15-20","All loans cover होने चाहिए","Children education fund"]},
+      {type:"conclusion",text:"Term insurance लेने में delay मत करो। जितनी जल्दी — उतनी कम premium।"},
+    ],
+  },
+  {
+    id:10, slug:"budget-kaise-banaye", featured:false, emoji:"📓",
+    title:"Monthly Budget कैसे बनाएं? — 50/30/20 Rule",
+    excerpt:"Salary आती है और चली जाती है? 50/30/20 rule से पैसा automatically save होगा।",
+    category:"savings", readTime:"5 min", date:"1 Mar 2025",
+    content:[
+      {type:"intro",text:"Budget बनाना boring नहीं — freedom है। 50/30/20 rule सबसे simple method है।"},
+      {type:"highlight",text:"📌 ₹50,000 salary → ₹25,000 needs + ₹15,000 wants + ₹10,000 savings"},
+      {type:"heading",text:"50% — Needs"},
+      {type:"list",items:["Rent/Home loan EMI","Grocery, bills","Transport","Insurance","School fees"]},
+      {type:"heading",text:"30% — Wants"},
+      {type:"list",items:["Eating out","Movies, OTT","Shopping","Travel","Hobbies"]},
+      {type:"heading",text:"20% — Savings"},
+      {type:"list",items:["Emergency fund","PPF/NPS","SIP — Mutual Funds","Loan prepayment"]},
+      {type:"conclusion",text:"Budget बनाना और follow करना — financial freedom का पहला कदम है।"},
+    ],
+  },
+  {
+    id:11, slug:"gold-mein-invest-karein", featured:false, emoji:"🥇",
+    title:"Gold में Invest करें या नहीं? — Digital Gold vs Physical vs ETF",
+    excerpt:"Gold India का favorite है। लेकिन कौन सा gold best है — physical, digital, या ETF?",
+    category:"investment", readTime:"6 min", date:"5 Mar 2025",
+    content:[
+      {type:"intro",text:"Indians gold से emotionally जुड़े हैं। Investment के नज़रिए से देखें तो कई options हैं।"},
+      {type:"table",headers:["Type","Storage","Returns","Best For"],rows:[["Physical Gold","Locker","Market","Jewelry"],["Digital Gold","None","Market","Small amounts"],["Gold ETF","Demat","Market","Regular invest"],["Sovereign Bond","None","Market+2.5%","✅ Best investment"]]},
+      {type:"highlight",text:"🏆 Sovereign Gold Bond — Gold price gain + 2.5% interest + Tax free maturity!"},
+      {type:"heading",text:"Portfolio में कितना Gold?"},
+      {type:"para",text:"Financial advisors recommend: portfolio का 5-15% gold में। Inflation hedge है।"},
+      {type:"conclusion",text:"Sovereign Gold Bond सबसे smart choice है।"},
+    ],
+  },
+  {
+    id:12, slug:"nps-kya-hai-retirement-planning", featured:false, emoji:"🌴",
+    title:"NPS से Retirement Planning — ₹1 Crore का Plan",
+    excerpt:"NPS — Government backed retirement plan। Extra ₹50,000 tax saving + retirement corpus।",
+    category:"investment", readTime:"7 min", date:"10 Mar 2025",
+    content:[
+      {type:"intro",text:"Retirement planning 25 साल की उम्र से शुरू करो — 55 पर करोड़पति बन सकते हो।"},
+      {type:"para",text:"NPS (National Pension System) Government का retirement program है। Monthly contribute करो, professionally manage होता है, retirement पर corpus + pension।"},
+      {type:"highlight",text:"💰 NPS में 80CCD(1B) के तहत ₹50,000 EXTRA tax deduction — 80C के ऊपर!"},
+      {type:"table",headers:["Feature","NPS","PPF","EPF"],rows:[["Returns","10-12%","7.1%","8.25%"],["Tax","80C+50K","80C","80C"],["Equity","Yes","No","No"],["Lock-in","60 साल","15 साल","Retirement"]]},
+      {type:"conclusion",text:"NPS + PPF combination retirement के लिए best है।"},
+    ],
+  },
+  {
+    id:13, slug:"home-loan-tips-india", featured:false, emoji:"🏠",
+    title:"Home Loan लेते समय 8 गलतियाँ जो लाखों का नुकसान करती हैं",
+    excerpt:"Home loan India का सबसे बड़ा financial decision है। ये 8 mistakes avoid करो।",
+    category:"basics", readTime:"7 min", date:"15 Mar 2025",
+    content:[
+      {type:"intro",text:"Home loan का एक गलत decision लाखों का नुकसान करवा सकता है।"},
+      {type:"highlight",text:"⚠️ ₹50L, 20Y, 8.5% → Total payment ₹1.06 Crore! ₹56L सिर्फ interest में!"},
+      {type:"heading",text:"8 Common Mistakes"},
+      {type:"list",items:["Sirf EMI देखना — total cost calculate करो","CIBIL check किए बिना apply करना","Sirf एक bank से लेना — compare करो","Processing fees ignore करना","Prepayment option नहीं पूछना","Co-applicant न लेना","Insurance skip करना","Floating vs fixed ठीक से compare नहीं करना"]},
+      {type:"highlight",text:"💡 ₹50L loan में हर साल ₹1L prepayment → 5 साल जल्दी close + ₹15L+ interest saved!"},
+      {type:"heading",text:"Tax Benefits"},
+      {type:"list",items:["80C: Principal ₹1.5L deduction","24(b): Interest ₹2L deduction","80EEA: First time buyers ₹1.5L extra","Joint loan: Both applicants deduction"]},
+      {type:"conclusion",text:"Home loan सोच-समझकर लो। Compare करो, negotiate करो, prepayment करो।"},
+    ],
+  },
+  {
+    id:14, slug:"inflation-se-paisa-kaise-bachaye", featured:false, emoji:"📉",
+    title:"Inflation क्या है? — अपने पैसे को Inflation से कैसे बचाएं",
+    excerpt:"Inflation आपके पैसे की value चुपचाप कम करती है। जानिए investments को कैसे protect करें।",
+    category:"basics", readTime:"5 min", date:"20 Mar 2025",
+    content:[
+      {type:"intro",text:"2010 में ₹100 में जो सामान आता था, आज ₹200+ में — यही inflation है।"},
+      {type:"para",text:"Inflation वह rate है जिस पर prices बढ़ती हैं। India में average 5-6% per year।"},
+      {type:"highlight",text:"⚠️ Savings Account 3.5% + Inflation 6% = आप actually POOR हो रहे हैं!"},
+      {type:"table",headers:["Investment","Return","Inflation Beat?"],rows:[["Savings Account","3.5%","❌"],["FD","6-7%","Barely"],["Gold","8-10%","Yes"],["Equity/MF","12-15%","✅ Yes!"]]},
+      {type:"conclusion",text:"Inflation से लड़ने का एक तरीका — invest करो। Idle पैसा रखना loss है।"},
+    ],
+  },
+  {
+    id:15, slug:"index-fund-kya-hota-hai", featured:false, emoji:"📊",
+    title:"Index Fund क्या है? — Warren Buffett की सलाह क्यों?",
+    excerpt:"Warren Buffett ने कहा: 'Low-cost index fund सबसे smart investment है।' जानिए क्यों।",
+    category:"investment", readTime:"6 min", date:"25 Mar 2025",
+    content:[
+      {type:"intro",text:"Warren Buffett ने अपनी wife के लिए instruction दी: 'सारा पैसा low-cost index fund में।' क्यों?"},
+      {type:"para",text:"Index Fund एक mutual fund है जो Nifty 50 या Sensex को exactly copy करता है। Market 1% बढ़े — fund 1% बढ़े।"},
+      {type:"highlight",text:"📊 Nifty 50 ने last 20 साल में average 14% annual return दिया — ज़्यादातर active funds से ज़्यादा!"},
+      {type:"table",headers:["Feature","Index Fund","Active Fund"],rows:[["Management","Passive","Active"],["Cost","0.1-0.2%","1-2.5%"],["Returns","Market returns","Beat करने की कोशिश"],["Transparency","High","Low"]]},
+      {type:"heading",text:"Best Index Funds 2025"},
+      {type:"list",items:["UTI Nifty 50 — oldest, reliable","HDFC Index Fund","Nippon India Index — low cost","ICICI Nifty Next 50","SBI Nifty Index"]},
+      {type:"conclusion",text:"Index Fund simplicity का beauty है। Regularly invest करते रहो।"},
+    ],
+  },
+  {
+    id:16, slug:"freelancing-se-paise-kamao", featured:false, emoji:"💼",
+    title:"Freelancing से ₹50,000/Month — Complete Guide",
+    excerpt:"Freelancing India में सबसे fast-growing career है। किस skill से शुरू करें, clients कैसे पाएं?",
+    category:"earning", readTime:"8 min", date:"1 Apr 2025",
+    content:[
+      {type:"intro",text:"Freelancing मतलब अपने skills बेचना — अपनी terms पर, घर से।"},
+      {type:"table",headers:["Skill","Potential","Learning Time"],rows:[["Content Writing","₹20K-80K","1-2 months"],["Graphic Design","₹25K-1L","3-6 months"],["Web Dev","₹40K-2L","6-12 months"],["Video Editing","₹20K-80K","2-4 months"],["Digital Marketing","₹25K-1L","2-4 months"]]},
+      {type:"heading",text:"Best Platforms"},
+      {type:"list",items:["Fiverr — beginners best","Upwork — higher paying","Freelancer.com — variety","LinkedIn — direct clients","Portfolio website — personal brand"]},
+      {type:"steps",items:[{title:"Skill choose",desc:"एक deep skill — generalist मत बनो।"},{title:"Portfolio",desc:"5-10 sample projects बनाओ।"},{title:"Profile optimize",desc:"Professional photo, clear description।"},{title:"पहला client",desc:"Low price से शुरू — reviews मिलने के बाद बढ़ाओ।"}]},
+      {type:"highlight",text:"💡 Pro Tip: एक niche choose करो। 'Finance blogger' बनो, not just 'writer'।"},
+      {type:"conclusion",text:"3-6 महीने consistent रहो — income automatically बढ़ती है।"},
+    ],
+  },
+  {
+    id:17, slug:"dividend-stocks-kya-hai", featured:false, emoji:"💰",
+    title:"Dividend Stocks — Stock Market से Passive Income",
+    excerpt:"कुछ stocks हर साल पैसे transfer करते हैं — बिना कुछ किए। यही Dividend है।",
+    category:"investment", readTime:"6 min", date:"5 Apr 2025",
+    content:[
+      {type:"intro",text:"Imagine करो: shares automatically हर 6 महीने में पैसे भेजते रहें। यह dream नहीं — dividend investing है।"},
+      {type:"para",text:"Company profit का हिस्सा shareholders को देती है — यह dividend है। TCS के 100 shares + ₹30 dividend = ₹3,000 income।"},
+      {type:"highlight",text:"📈 Dividend yield = Annual Dividend / Stock Price × 100. 3-5% yield good।"},
+      {type:"heading",text:"Top Dividend Stocks India"},
+      {type:"list",items:["Coal India — 6-8% yield","ONGC — PSU, regular","ITC — dividend + FMCG growth","Power Grid — utility, stable","Infosys/TCS — quarterly dividends"]},
+      {type:"conclusion",text:"Dividend investing slow but steady wealth building है।"},
+    ],
+  },
+  {
+    id:18, slug:"income-tax-return-kaise-bhare", featured:false, emoji:"📄",
+    title:"ITR कैसे भरें? — Free में Tax Return Filing 2025",
+    excerpt:"ITR भरना free है। 31 July deadline से पहले खुद भरो। CA fees बचाओ।",
+    category:"tax", readTime:"8 min", date:"10 Apr 2025",
+    content:[
+      {type:"intro",text:"हर salaried person को ITR file करनी होती है। ज़्यादा TDS कटा है तो refund भी मिलता है।"},
+      {type:"heading",text:"Documents चाहिए"},
+      {type:"list",items:["Form 16 — employer से","Bank statements","Form 26AS — IT website से","Investment proofs — 80C, 80D","PAN और Aadhaar"]},
+      {type:"steps",items:[{title:"incometax.gov.in",desc:"Official portal। Login करें।"},{title:"File ITR",desc:"Dashboard पर 'File Income Tax Return'।"},{title:"Form select",desc:"Salaried: ITR-1 (Sahaj)।"},{title:"Data verify",desc:"Pre-filled data check करें।"},{title:"Deductions add",desc:"80C, 80D, HRA, home loan।"},{title:"e-Verify",desc:"Aadhaar OTP से। Done!"}]},
+      {type:"highlight",text:"💰 TDS ₹30,000 कटा + actual tax ₹20,000 = ₹10,000 REFUND मिलेगा!"},
+      {type:"conclusion",text:"ITR भरना 30 मिनट का काम है। खुद करो — simple है।"},
+    ],
+  },
+  {
+    id:19, slug:"zerodha-account-kaise-kholein", featured:false, emoji:"💹",
+    title:"Zerodha में Demat Account कैसे खोलें? — 2025 Guide",
+    excerpt:"Zerodha India का #1 stockbroker। ₹0 account opening, ₹20 per trade।",
+    category:"investment", readTime:"6 min", date:"15 Apr 2025",
+    content:[
+      {type:"intro",text:"Zerodha India का सबसे popular discount broker है। 1.5 Crore+ active users।"},
+      {type:"heading",text:"Zerodha क्यों?"},
+      {type:"list",items:["₹0 account opening","Equity delivery: ₹0 brokerage","F&O: ₹20 flat","Kite — best trading platform","Coin — direct mutual funds free","varsity.zerodha.com — free education"]},
+      {type:"steps",items:[{title:"zerodha.com पर जाएं",desc:"'Open an account' click करें।"},{title:"Mobile verify",desc:"OTP enter करें।"},{title:"Details भरें",desc:"PAN, personal info।"},{title:"Documents upload",desc:"PAN, Aadhaar, bank proof।"},{title:"Video KYC",desc:"Camera verification — 5-10 min।"},{title:"e-Sign",desc:"Aadhaar OTP से।"},{title:"Active",desc:"24-48 hours में email। Kite app download करें।"}]},
+      {type:"conclusion",text:"20 मिनट में account खुल जाता है। Completely paperless।"},
+    ],
+  },
+  {
+    id:20, slug:"passive-income-ideas-india", featured:false, emoji:"💸",
+    title:"Passive Income के 8 Real तरीके — सोते हुए पैसे कमाओ",
+    excerpt:"बिना actively काम किए पैसे आना — यह possible है। India में 8 proven sources।",
+    category:"earning", readTime:"7 min", date:"20 Apr 2025",
+    content:[
+      {type:"intro",text:"'अमीर लोग सोते हुए पैसे कमाते हैं।' — यह passive income है।"},
+      {type:"list",items:["Dividend stocks — quarterly income","Rental property — monthly","YouTube/Blog — AdSense","Affiliate marketing — commission","Digital products — ebook, courses","REITs — real estate dividends","P2P lending — interest income","High-yield FD/savings"]},
+      {type:"table",headers:["Source","Investment","Monthly"],rows:[["Dividends","₹50K+","₹1K-10K"],["Rental","₹50L+","₹10K-50K"],["YouTube","Time","₹5K-1L+"],["Affiliate","Near zero","₹5K-50K"],["Digital Products","Time","₹5K-2L+"]]},
+      {type:"highlight",text:"💡 Beginner Combo: Dividend + Index Fund investing + Blog/YouTube।"},
+      {type:"conclusion",text:"Passive income building marathon है। Start anywhere — consistent रहो।"},
+    ],
+  },
+  {
+    id:21, slug:"mutual-fund-kaise-chunein", featured:false, emoji:"🔍",
+    title:"Mutual Fund कैसे चुनें? — 5 Key Factors",
+    excerpt:"1000+ mutual funds हैं India में। यह 5 factors देखकर सही fund चुनो।",
+    category:"investment", readTime:"6 min", date:"25 Apr 2025",
+    content:[
+      {type:"intro",text:"India में 1000+ mutual funds हैं। Confused होना natural है। लेकिन 5 चीज़ें देखो — सही fund मिलेगा।"},
+      {type:"heading",text:"Goal के हिसाब से Fund"},
+      {type:"list",items:["Short-term (1-3Y): Debt/Liquid funds","Medium (3-5Y): Hybrid funds","Long-term (5Y+): Equity funds","Tax saving: ELSS","Emergency: Liquid fund"]},
+      {type:"table",headers:["Factor","Check","Ideal"],rows:[["Returns","3Y, 5Y CAGR","Benchmark से ऊपर"],["Expense Ratio","Annual fee","Index <0.5%, Active <1.5%"],["Fund Size","Total AUM","₹5000Cr+ (large cap)"],["Manager","Experience","5+ साल same fund"],["Sharpe Ratio","Risk-adjusted return","Higher = better"]]},
+      {type:"conclusion",text:"सही fund वो है जो आपके goal और risk से match करे।"},
+    ],
+  },
+  {
+    id:22, slug:"salary-se-crorepati-kaise-bane", featured:false, emoji:"🏆",
+    title:"Salary से Crorepati कैसे बनें? — 10-15 साल का Plan",
+    excerpt:"₹50,000 salary पर भी 15 साल में Crorepati बन सकते हैं। यह math है — magic नहीं।",
+    category:"investment", readTime:"7 min", date:"1 May 2025",
+    content:[
+      {type:"intro",text:"Crorepati बनना impossible नहीं — overnight भी नहीं। सही strategy से average salary पर ₹1 Crore बनता है।"},
+      {type:"highlight",text:"💡 ₹15,000/month SIP, 12% returns, 15 साल = ₹1.01 Crore!"},
+      {type:"steps",items:[{title:"Emergency Fund",desc:"3-6 months expenses — Liquid fund।"},{title:"Insurance",desc:"Term + Health insurance।"},{title:"30% invest",desc:"₹50K salary → ₹15,000 minimum।"},{title:"SIP set",desc:"Nifty 50 ₹10K + ELSS ₹5K।"},{title:"Step-up",desc:"Salary बढ़े → SIP 10-15% बढ़ाओ।"},{title:"Touch मत करो",desc:"Market crash में panic sell मत।"}]},
+      {type:"table",headers:["Monthly SIP","Return","₹1Cr Time"],rows:[["₹5,000","12%","26 साल"],["₹10,000","12%","20 साल"],["₹15,000","12%","15 साल"],["₹20,000","12%","13 साल"],["₹30,000","12%","10 साल"]]},
+      {type:"conclusion",text:"Crorepati बनना है तो आज शुरू करो। Delay expensive है।"},
+    ],
+  },
+  {
+    id:23, slug:"crypto-kya-hai-invest-karein", featured:false, emoji:"₿",
+    title:"Cryptocurrency क्या है? — India में Invest करें या नहीं?",
+    excerpt:"Bitcoin, Ethereum — safe है? India में crypto tax क्या है? Honestly बताते हैं।",
+    category:"investment", readTime:"7 min", date:"5 May 2025",
+    content:[
+      {type:"intro",text:"Crypto के बारे में दो extreme opinions हैं। सच दोनों के बीच है।"},
+      {type:"para",text:"Cryptocurrency digital currency है — blockchain पर based। Bitcoin 2009 में बना। 20,000+ cryptocurrencies exist करती हैं।"},
+      {type:"highlight",text:"⚠️ India में Crypto पर 30% flat tax + 1% TDS! FD/Stocks से बहुत ज़्यादा।"},
+      {type:"table",headers:["Factor","Crypto","Equity/MF"],rows:[["Returns","Very High/Low","Stable long-term"],["Risk","Extremely High","Market risk"],["Tax","30% flat","10-15% LTCG"],["Regulation","Unclear","Well regulated"]]},
+      {type:"heading",text:"अगर करना ही है तो"},
+      {type:"list",items:["Maximum 5% portfolio only","Sirf Bitcoin और Ethereum","Unknown coins avoid करो","FOMO में decision मत लो","Regulated exchanges use करो"]},
+      {type:"conclusion",text:"High risk game है। पहले Mutual Funds में expertise बनाओ।"},
+    ],
+  },
+  {
+    id:24, slug:"financial-freedom-kaise-paye", featured:false, emoji:"🕊️",
+    title:"Financial Freedom क्या है? — 40 की उम्र में Retire होने का Plan",
+    excerpt:"Financial Freedom = पैसे के लिए काम करना choice हो, मजबूरी नहीं। FIRE movement Hindi में।",
+    category:"basics", readTime:"8 min", date:"10 May 2025",
+    content:[
+      {type:"intro",text:"Financial Freedom का मतलब rich होना नहीं — enough होना है। Passive income expenses cover करे — तब आप free हैं।"},
+      {type:"para",text:"FIRE = Financial Independence, Retire Early। 30-45 की उम्र में retire करने के बारे में है।"},
+      {type:"highlight",text:"📊 4% Rule: Annual expenses × 25 = FIRE Number। ₹5L/year → ₹1.25 Crore corpus।"},
+      {type:"heading",text:"Financial Freedom Stages"},
+      {type:"list",items:["Stability: No debt, emergency fund","Security: 1+ year expenses saved","Independence: Passive income covers basics","Freedom: Passive income covers lifestyle","Abundance: Unlimited choices"]},
+      {type:"table",headers:["Age","Monthly SIP","FIRE at"],rows:[["25","₹20,000","42 साल"],["25","₹30,000","38 साल"],["30","₹30,000","44 साल"],["30","₹50,000","40 साल"]]},
+      {type:"conclusion",text:"Financial Freedom एक journey है। Start करो, consistent रहो — destination खूबसूरत है।"},
+    ],
   },
 ];
